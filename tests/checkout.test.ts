@@ -51,10 +51,6 @@ describe("ThreeForTwoRule (Apple TV)", () => {
     test("6 Apple TVs → pay for 4 (two full groups)", () => {
         expect(checkout(["atv", "atv", "atv", "atv", "atv", "atv"])).toBe(438.00);
     });
-
-    test("3 Super Ipads → pay for 3  as  2/3 Void", () => {
-        expect(checkout(["ipd", "ipd", "ipd"])).toBe(3 * 549.99);
-    });
 });
 
 // ---------------------------------------------------------------------------
@@ -126,5 +122,9 @@ describe("Edge cases", () => {
         co.scan("atv");
         co.scan("atv");
         expect(co.total()).toBe(3 * 109.50);
+    });
+
+    test("ThreeForTwoRule does not apply to iPads", () => {
+        expect(checkout(["ipd", "ipd", "ipd"])).toBe(3 * 549.99);
     });
 });

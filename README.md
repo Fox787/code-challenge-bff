@@ -26,6 +26,10 @@ The interface to our checkout looks like this (shown in typescript):
   co.total();
 ```
 
+Note:
+The Checkout constructor also accepts a catalogue parameter. This was a deliberate design choice to make the system more testable and the catalogue independently configurable.
+
+
 Your task is to implement a checkout system that fulfils the requirements described above.
 
 Example scenarios
